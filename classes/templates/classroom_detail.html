@@ -8,6 +8,28 @@
   <div class="card-body">
     <h5 class="card-title" style="color: 000034;">{{classroom.name}} {{classroom.subject}}</h5>
     <p class="card-text" style="color: 000034;">{{classroom.year}}</p>
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">date_of_birth</th>
+      <th scope="col">gender</th>
+      <th scope="col">exam_grade</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for student in students %}
+    <tr>
+      <th scope="row"></th>
+      <td>{{ student.name }}</td>
+      <td>{{ student.date_of_birth }}</td>
+      <td>{{ student.gender }}</td>
+      <td>{{ student.exam_grade }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+    <a href="{% url 'add-student' classroom.id %}" class="btn" style="background-color: #FFA500; color: #000034;">ADD STUDENT</a>
     <a href="{% url 'classroom-update' classroom.id %}" class="btn" style="background-color: #000034; color: white;">Update</a>
     <a href="{% url 'classroom-delete' classroom.id %}" class="btn" style="background-color: #FFA500; color: #000034;">Delete</a>
   </div>
